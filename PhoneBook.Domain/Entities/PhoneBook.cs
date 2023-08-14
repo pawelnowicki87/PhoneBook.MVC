@@ -12,6 +12,7 @@ namespace PhoneBook.Domain.Entities
         public string FirstName { get; set; } = default!;
         public string LastName { get; set; } = default!;
         public string? Description { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
         public PhoneBookContactDetails ContactDetails { get; set; } = default!;
     }
 }

@@ -12,7 +12,7 @@ using PhoneBook.Infrastructure.Persistance;
 namespace PhoneBook.Infrastructure.Migrations
 {
     [DbContext(typeof(PhoneBookDbContext))]
-    [Migration("20230814164143_Init")]
+    [Migration("20230814172120_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -32,6 +32,9 @@ namespace PhoneBook.Infrastructure.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -58,9 +61,6 @@ namespace PhoneBook.Infrastructure.Migrations
 
                             b1.Property<string>("City")
                                 .HasColumnType("nvarchar(max)");
-
-                            b1.Property<DateTime>("CreatedAt")
-                                .HasColumnType("datetime2");
 
                             b1.Property<string>("PostalCode")
                                 .HasColumnType("nvarchar(max)");

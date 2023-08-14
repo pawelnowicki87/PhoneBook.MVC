@@ -30,6 +30,9 @@ namespace PhoneBook.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
@@ -55,9 +58,6 @@ namespace PhoneBook.Infrastructure.Migrations
 
                             b1.Property<string>("City")
                                 .HasColumnType("nvarchar(max)");
-
-                            b1.Property<DateTime>("CreatedAt")
-                                .HasColumnType("datetime2");
 
                             b1.Property<string>("PostalCode")
                                 .HasColumnType("nvarchar(max)");
