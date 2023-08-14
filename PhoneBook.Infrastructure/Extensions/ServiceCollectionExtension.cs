@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PhoneBook.Infrastructure.Persistance;
+using PhoneBook.Infrastructure.Seeders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,8 @@ namespace PhoneBook.Infrastructure.Extensions
         {
             services.AddDbContext<PhoneBookDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("PhoneBook")));
 
+            services.AddScoped<PhoneBookSeeder>();
         }
+
     }
 }

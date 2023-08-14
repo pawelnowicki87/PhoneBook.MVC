@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using PhoneBook.Infrastructure.Persistance;
 using PhoneBook.Infrastructure.Extensions;
+using PhoneBook.Infrastructure.Seeders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,10 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddInfrastructure(builder.Configuration);
 
 var app = builder.Build();
+
+var scope = app.Services.CreateScope();
+var seeder = scope.ServiceProvider.GetRequiredService<PhoneBookSeeder>();
+await seeder.Seed();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

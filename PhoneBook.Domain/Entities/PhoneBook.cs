@@ -8,11 +8,13 @@ namespace PhoneBook.Domain.Entities
 {
     public class PhoneBook
     {
-        public required int Id { get; set; }
+        public int Id { get; set; }
         public string FirstName { get; set; } = default!;
         public string LastName { get; set; } = default!;
+        //public string PhoneNumber { get; set; } = default!;
         public string? Description { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public PhoneBookContactDetails ContactDetails { get; set; } = default!;
+
     }
 }
