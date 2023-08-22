@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using PhoneBook.Infrastructure.Persistance;
 using PhoneBook.Infrastructure.Extensions;
 using PhoneBook.Infrastructure.Seeders;
+using PhoneBook.Application.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddApplication();
 
 var app = builder.Build();
 

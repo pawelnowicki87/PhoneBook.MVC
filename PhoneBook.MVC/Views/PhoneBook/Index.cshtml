@@ -1,0 +1,27 @@
+﻿@model IEnumerable<PhoneBook.Application.PhoneBook.PhoneBookDto>
+
+@{
+    ViewData["Title"] = "Phone Book";
+}
+
+<h1 >Lista kontaktów</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-secondary">Create New</a>
+</p>
+
+<div class="row">
+
+    @foreach (var item in Model)
+    {
+        <div class="card m-3" style="width: 18rem;">
+            <div class="card-body">
+                <h2 class="card-title">@item.FirstName @item.LastName</h2>
+                <h6 class="card-subsitle mb-2 text-muted">@item.PhoneNumber</h6>
+
+                <a class="btn btn-primary" asp-controller="PhoneBook" asp-action="Details" asp-route-phoneNumber="@item.PhoneNumber">Details</a>
+                <a class="btn btn-outline-secondary" asp-controller="PhoneBook" asp-action="Edit" asp-route-phoneNumber="@item.PhoneNumber">Edit</a>
+            </div>
+        </div>
+    }
+</div>
